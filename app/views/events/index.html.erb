@@ -1,0 +1,23 @@
+
+</br>
+</br>
+</br>
+	<h2>Events</h2>
+
+
+<h3 align="center"><%= link_to "Upload Event" , new_event_path%></h3>
+
+<div class="grid-container">
+<% i = 1 %>	
+<% @event.each do |e| %>
+    <div class="grid-item<%=i%>">
+    	<h6>
+    	<li>
+    		<%= e.title %><br></li>    	
+		    <%= e.start_date.strftime("%d/%m/%Y") %><br></li>
+		    <%= link_to "Plus", event_path(e.id) %>
+    	</h6>
+    </div>
+    <% i += 1 %>
+    <% end %>	
+</div>

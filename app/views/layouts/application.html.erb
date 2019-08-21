@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Eventbride</title>
+   <%= csrf_meta_tags %>
+   <%= csp_meta_tag %>    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style >
+    
+  </style>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Event Biride</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href=<%= events_path %>>  Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<%=new_event_path%>>Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">User</a>
+          </li>
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Statut</a>
+                       <% if user_signed_in? %>
+ 
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </a>
+              <a class="dropdown-item" href=<%=user_path(current_user.id)%>> profil </a>
+            </div>
+                      <% else %>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href=<%=user_session_path%>> log in </a>
+              <a class="dropdown-item" href=<%=new_user_session_path%>> Sign </a>
+            </div>
+                      <% end %>
+          </li>
+        </form>
+      </div>
+    </nav>
+  </head>  
+<body>    
+            <%= yield %>    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ </body>
+</html>
